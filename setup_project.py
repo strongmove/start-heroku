@@ -2,7 +2,7 @@
 
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
-import re
+import subprocess
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -55,9 +55,14 @@ def set_secret_key():
         f.writelines(lines)
 
 
+def git_remove_remote_origin():
+    subprocess.run(["git", "remote", "remove", "origin"])
+
+
 def main():
     create_files()
     set_secret_key()
+    git_remove_remote_origin()
 
 
 if __name__ == "__main__":
