@@ -29,6 +29,7 @@ definitions = [
         "text": "\n".join(
             [
                 "django",
+                "django-cors-headers",
                 "django-heroku",
                 "djangorestframework",
                 "gunicorn",
